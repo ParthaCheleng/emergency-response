@@ -1,0 +1,144 @@
+{
+  "emergency_level": "CRITICAL",
+  "timeline": [
+    {
+      "timestamp": "2026-07-04T09:42:00Z",
+      "event": "USGS Seismic Alert: 7.2 magnitude earthquake detected at 34.0522°N, 118.2437°W — Downtown Metro District epicenter confirmed.",
+      "source": "USGS Seismic Monitoring Network",
+      "severity": "CRITICAL"
+    },
+    {
+      "timestamp": "2026-07-04T09:42:18Z",
+      "event": "Structural collapse reports received from Fire Station 9. Multiple high-rise buildings showing partial pancake failure in sectors A and C.",
+      "source": "LAFD Dispatch CAD",
+      "severity": "CRITICAL"
+    },
+    {
+      "timestamp": "2026-07-04T09:43:05Z",
+      "event": "Gas line rupture confirmed at Main St & 4th Ave intersection. SoCalGas emergency shutoff valves activated. Evacuating 3-block radius.",
+      "source": "SoCalGas SCADA Telemetry",
+      "severity": "CRITICAL"
+    },
+    {
+      "timestamp": "2026-07-04T09:44:12Z",
+      "event": "Hospital Alpha backup generator failure detected. ICU and surgical wing on battery reserves — estimated 47 minutes remaining.",
+      "source": "Hospital Alpha Facilities BMS",
+      "severity": "CRITICAL"
+    },
+    {
+      "timestamp": "2026-07-04T09:45:30Z",
+      "event": "National Weather Service issuing flash flood watch for downstream channels. Aftershock probability 78% within next 2 hours.",
+      "source": "NWS Los Angeles / USGS Aftershock Forecast",
+      "severity": "WARNING"
+    },
+    {
+      "timestamp": "2026-07-04T09:47:00Z",
+      "event": "HAZMAT sensors detecting elevated chlorine gas readings at Industrial Park Zone 7. Wind vector carrying plume northeast toward residential blocks.",
+      "source": "EPA AirNow / Industrial HAZMAT Beacon Array",
+      "severity": "CRITICAL"
+    }
+  ],
+  "agent_chatter": [
+    {
+      "agent": "Incident Commander",
+      "emoji": "🧑‍✈️",
+      "status": "ACTIVE",
+      "message": "UNIFIED COMMAND ACTIVATED. Declaring CRITICAL emergency level. All sector leads report status immediately. Establishing forward command post at City Hall parking structure — elevation advantage confirmed. Requesting mutual aid from neighboring counties under EMAC compact. Resource allocation matrix initialized: prioritizing Hospital Alpha power restoration and gas leak containment as Tier-1 objectives.",
+      "tools_used": ["situation_assessment_engine", "resource_allocation_matrix", "mutual_aid_request_generator"],
+      "last_action": "Dispatched mutual aid request to 3 neighboring county EOCs via EMAC protocol"
+    },
+    {
+      "agent": "Medical Coordinator",
+      "emoji": "🚑",
+      "status": "ACTIVE",
+      "message": "Mass casualty incident protocols engaged. Queried regional hospital capacity database — filtering available trauma beds across 14 facilities. Results: Mercy General has 23 available trauma bays, St. Vincent's has 8, County USC has 31 but is reporting structural damage to East Wing. Deploying 6 mobile triage units to sectors A, C, and F. Establishing casualty collection points at Lincoln Park and Convention Center. Blood bank reserves at 62% — issuing emergency donor call through Red Cross API.",
+      "tools_used": ["hospital_bed_availability_filter", "triage_unit_deployment_planner", "blood_bank_inventory_check"],
+      "last_action": "Filtered 14 hospital databases: identified 62 available trauma beds across 3 facilities"
+    },
+    {
+      "agent": "Fire Chief",
+      "emoji": "🚒",
+      "status": "ACTIVE",
+      "message": "Structure fire confirmed at 3 locations in Sector A — deploying 12 engine companies and 4 ladder trucks. Gas leak at Main & 4th is producing a 200m vapor cloud; establishing hot zone perimeter with FLIR thermal imaging. Coordinating with SoCalGas for upstream valve shutoff — ETA 8 minutes. Water main pressure dropping in Grid 7 — switching to auxiliary reservoir feed. Requesting 2 additional USAR teams for confirmed entrapment signals at Meridian Tower floors 12-15.",
+      "tools_used": ["fire_resource_dispatcher", "gas_leak_plume_tracker", "water_pressure_grid_monitor"],
+      "last_action": "Tracked gas plume dispersion model: 200m vapor cloud drifting NE at 8 km/h"
+    },
+    {
+      "agent": "Traffic Planner",
+      "emoji": "🚦",
+      "status": "ACTIVE",
+      "message": "Traffic signal network analysis complete. 47 intersections dark due to power grid failure in sectors B and D. Analyzing bridge structural integrity reports — 4th Street Bridge showing critical stress fractures, CLOSED immediately. Rerouting all emergency vehicle corridors through Highway 101 northbound and Figueroa Street southbound. Deploying 8 traffic control officers to key chokepoints. Establishing dedicated emergency vehicle lanes on 3 arterials. Civilian evacuation routing algorithm engaged — estimated 34,000 vehicles requiring redirection.",
+      "tools_used": ["bridge_structural_integrity_analyzer", "emergency_corridor_route_optimizer", "traffic_signal_network_scanner"],
+      "last_action": "Closed 4th Street Bridge after structural analysis detected critical stress fractures"
+    },
+    {
+      "agent": "Tactical Weather Analyst",
+      "emoji": "🌦️",
+      "status": "ACTIVE",
+      "message": "Current conditions: Temperature 29°C, winds SW at 14 km/h gusting to 28 km/h, relative humidity 34%. CRITICAL ALERT: Wind vector analysis shows gas plume and potential HAZMAT cloud drifting directly toward Riverside Heights residential district (population 12,400). 72-hour precipitation forecast shows 40mm rainfall beginning in approximately 6 hours — this will complicate USAR operations and increase landslide risk on destabilized hillsides. Aftershock probability model: 78% chance of M5.0+ aftershock within 2 hours. Issuing shelter-in-place wind advisory for downwind sectors.",
+      "tools_used": ["wind_vector_plume_analysis", "precipitation_forecast_model", "aftershock_probability_calculator"],
+      "last_action": "Calculated wind-driven plume trajectory: HAZMAT cloud reaching Riverside Heights in 22 minutes"
+    },
+    {
+      "agent": "Strategic Logistics Officer",
+      "emoji": "📦",
+      "status": "ACTIVE",
+      "message": "Emergency supply chain activation complete. Queried FEMA National Logistics Staging Area — 3 pre-positioned supply pods available at March ARB (ETA 90 min by ground). Hospital Alpha generator fuel: dispatching 2 tanker trucks from Strategic Petroleum Reserve local cache — ETA 25 minutes. Portable generator inventory: 14 units available from DWP emergency stores, deploying 6 to Hospital Alpha and 4 to traffic signal priority intersections. MRE and water pallet staging at Convention Center evacuation point — capacity for 8,000 displaced persons. Coordinating with National Guard for heavy lift helicopter support for USAR operations.",
+      "tools_used": ["supply_chain_inventory_tracker", "fuel_reserve_dispatcher", "shelter_capacity_calculator"],
+      "last_action": "Dispatched 2 fuel tanker trucks to Hospital Alpha — ETA 25 minutes for generator restoration"
+    },
+    {
+      "agent": "Public Information Officer",
+      "emoji": "📢",
+      "status": "ACTIVE",
+      "message": "Emergency Alert System (EAS) activation in progress. Drafting Wireless Emergency Alert (WEA) for cell broadcast to all devices within 10-mile radius. Key messaging: SHELTER IN PLACE for Riverside Heights (gas plume), EVACUATE for sectors A and C (structural collapse zones). Social media monitoring detecting 14,000+ posts/minute — deploying automated misinformation counter-narrative bot on verified agency channels. Press conference scheduled at City Hall in 45 minutes. Activating 311 call center surge capacity — scaling from 12 to 48 operators. Multi-language alert translations queued: Spanish, Mandarin, Korean, Armenian.",
+      "tools_used": ["emergency_alert_system_broadcaster", "social_media_sentiment_monitor", "multilingual_alert_translator"],
+      "last_action": "Queued Wireless Emergency Alert for 10-mile radius: shelter-in-place and evacuation zones defined"
+    },
+    {
+      "agent": "HAZMAT Specialist",
+      "emoji": "☢️",
+      "status": "ACTIVE",
+      "message": "HAZMAT ALERT LEVEL: RED. Chlorine gas detection confirmed at Industrial Park Zone 7 — concentration reading 8.2 ppm (IDLH threshold: 10 ppm). Plume dispersion simulation running: current wind conditions will carry toxic cloud to Riverside Heights residential area in approximately 22 minutes. Recommending IMMEDIATE shelter-in-place with sealed windows for 6-block radius downwind. Deploying 2 HAZMAT response teams with Level-A suits for source containment. Secondary concern: ruptured ammonia refrigeration line at Cold Storage Facility B — currently contained but monitoring. Decontamination corridor established at Fire Station 12. Air quality monitoring drones deployed to track plume boundary in real-time.",
+      "tools_used": ["chemical_plume_dispersion_simulator", "air_quality_sensor_aggregator", "decontamination_protocol_generator"],
+      "last_action": "Simulated chlorine plume dispersion: 8.2 ppm at source, reaching residential zone in 22 min at current wind speed"
+    }
+  ],
+  "action_plan": [
+    {
+      "step": 1,
+      "priority": "IMMEDIATE",
+      "directive": "SECURE HOSPITAL ALPHA POWER: Dispatch emergency fuel tankers and 6 portable generators to Hospital Alpha within 25 minutes. Reroute 4 ambulances carrying critical patients to Mercy General (23 available trauma bays). Activate backup surgical suite at County USC East Wing alternative entrance.",
+      "assigned_agents": ["Strategic Logistics Officer", "Medical Coordinator"],
+      "eta": "25 minutes"
+    },
+    {
+      "step": 2,
+      "priority": "IMMEDIATE",
+      "directive": "CONTAIN GAS LEAK & HAZMAT PLUME: Establish 500m exclusion zone around Main & 4th gas rupture. Deploy HAZMAT Level-A teams to Industrial Park Zone 7 for chlorine source containment. Issue shelter-in-place WEA alert to Riverside Heights (12,400 residents) — seal all windows, disable HVAC intakes. Deploy air quality monitoring drones along plume boundary.",
+      "assigned_agents": ["Fire Chief", "HAZMAT Specialist", "Public Information Officer"],
+      "eta": "15 minutes"
+    },
+    {
+      "step": 3,
+      "priority": "HIGH",
+      "directive": "ACTIVATE URBAN SEARCH AND RESCUE: Deploy 4 USAR teams with K-9 units to Meridian Tower (confirmed entrapment signals floors 12-15) and collapsed structures in Sector A. Stage heavy lift equipment at forward staging area. Request National Guard helicopter support for aerial insertion to inaccessible collapse sites. Establish casualty collection points at Lincoln Park and Convention Center.",
+      "assigned_agents": ["Incident Commander", "Fire Chief", "Medical Coordinator"],
+      "eta": "35 minutes"
+    },
+    {
+      "step": 4,
+      "priority": "HIGH",
+      "directive": "LOCK DOWN TRANSPORTATION GRID: Close 4th Street Bridge immediately (critical stress fractures detected). Reroute emergency corridors to Highway 101 N and Figueroa St S. Deploy traffic officers to 8 critical intersections. Activate emergency vehicle priority lanes. Begin civilian evacuation routing for 34,000 vehicles in collapse zones — northbound via 101, eastbound via I-10.",
+      "assigned_agents": ["Traffic Planner", "Incident Commander"],
+      "eta": "20 minutes"
+    },
+    {
+      "step": 5,
+      "priority": "SUSTAINED",
+      "directive": "ESTABLISH MASS CARE AND COMMUNICATIONS: Stage 8,000-person shelter capacity at Convention Center with MRE/water pallets from FEMA staging. Scale 311 call center to 48 operators with multi-language support (Spanish, Mandarin, Korean, Armenian). Deploy counter-misinformation protocols on social media. Schedule command staff press conference at City Hall T+45 min. Activate mutual aid compacts with 3 neighboring county EOCs.",
+      "assigned_agents": ["Strategic Logistics Officer", "Public Information Officer", "Incident Commander"],
+      "eta": "45 minutes"
+    }
+  ]
+}

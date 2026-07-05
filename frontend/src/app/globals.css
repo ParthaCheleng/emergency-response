@@ -1,0 +1,421 @@
+@import "tailwindcss";
+
+/* ============================================================
+   Emergency Response Commander AI — Global Styles
+   Dark tactical operations center theme
+   ============================================================ */
+
+
+
+/* --- CSS Custom Properties (Design Tokens) --- */
+:root {
+  --bg-primary: #050810;
+  --bg-secondary: #0a0f1a;
+  --bg-card: #111827;
+  --bg-card-hover: #1a2332;
+  --bg-surface: #1e293b;
+  --border-default: #1e293b;
+  --border-subtle: #334155;
+  --border-bright: #475569;
+  --text-primary: #f1f5f9;
+  --text-secondary: #94a3b8;
+  --text-muted: #64748b;
+  --accent-red: #ff2d55;
+  --accent-red-glow: rgba(255, 45, 85, 0.4);
+  --accent-amber: #ffbe0b;
+  --accent-amber-glow: rgba(255, 190, 11, 0.3);
+  --accent-green: #00f5a0;
+  --accent-green-glow: rgba(0, 245, 160, 0.3);
+  --accent-blue: #3b82f6;
+  --accent-blue-glow: rgba(59, 130, 246, 0.3);
+  --accent-purple: #a855f7;
+  --accent-cyan: #06b6d4;
+}
+
+/* --- Base Resets --- */
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  min-height: 100vh;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* --- Custom Scrollbar --- */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg-secondary);
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--border-subtle);
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--border-bright);
+}
+
+/* --- Tactical Scanline Overlay --- */
+.scanlines {
+  position: relative;
+  overflow: hidden;
+}
+
+.scanlines::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: repeating-linear-gradient(
+    0deg,
+    transparent,
+    transparent 2px,
+    rgba(0, 0, 0, 0.08) 2px,
+    rgba(0, 0, 0, 0.08) 4px
+  );
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* --- Pulse Animations --- */
+@keyframes pulse-critical {
+  0%, 100% {
+    box-shadow: 0 0 8px var(--accent-red-glow), 0 0 24px var(--accent-red-glow);
+    border-color: var(--accent-red);
+  }
+  50% {
+    box-shadow: 0 0 16px var(--accent-red-glow), 0 0 48px var(--accent-red-glow), 0 0 80px rgba(255, 45, 85, 0.15);
+    border-color: rgba(255, 45, 85, 0.7);
+  }
+}
+
+@keyframes pulse-warning {
+  0%, 100% {
+    box-shadow: 0 0 6px var(--accent-amber-glow), 0 0 18px var(--accent-amber-glow);
+    border-color: var(--accent-amber);
+  }
+  50% {
+    box-shadow: 0 0 12px var(--accent-amber-glow), 0 0 36px var(--accent-amber-glow);
+    border-color: rgba(255, 190, 11, 0.6);
+  }
+}
+
+@keyframes pulse-processing {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+@keyframes pulse-dot {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.5);
+    opacity: 0.6;
+  }
+}
+
+@keyframes glow-green {
+  0%, 100% {
+    box-shadow: 0 0 4px var(--accent-green-glow);
+  }
+  50% {
+    box-shadow: 0 0 12px var(--accent-green-glow), 0 0 24px rgba(0, 245, 160, 0.15);
+  }
+}
+
+/* --- Flash Animation (Catastrophic) --- */
+@keyframes flash-catastrophic {
+  0%, 100% {
+    background-color: rgba(220, 38, 38, 0.15);
+    border-color: #dc2626;
+  }
+  25% {
+    background-color: rgba(220, 38, 38, 0.3);
+    border-color: #ef4444;
+  }
+  50% {
+    background-color: rgba(220, 38, 38, 0.1);
+    border-color: #b91c1c;
+  }
+  75% {
+    background-color: rgba(220, 38, 38, 0.25);
+    border-color: #f87171;
+  }
+}
+
+/* --- Fade In Animations --- */
+@keyframes fade-in-up {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fade-in-left {
+  from {
+    opacity: 0;
+    transform: translateX(-12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes fade-in-scale {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* --- Staggered Reveal --- */
+@keyframes stagger-reveal {
+  from {
+    opacity: 0;
+    transform: translateX(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* --- Spinner --- */
+@keyframes spin-slow {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+/* --- Text Flicker (EmergencyStatus processing) --- */
+@keyframes text-flicker {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.7; }
+}
+
+/* --- Bar Pulse (EmergencyStatus processing bars) --- */
+@keyframes bar-pulse {
+  0%, 100% { opacity: 0.3; transform: scaleX(0.8); }
+  50% { opacity: 1; transform: scaleX(1); }
+}
+
+/* --- Scanline sweep (tactical overlay) --- */
+@keyframes scanline {
+  0% { transform: translateY(-100%); }
+  100% { transform: translateY(100%); }
+}
+
+/* --- Timeline fade-in --- */
+@keyframes timeline-fade-in {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* --- Agent pulse (status dot) --- */
+@keyframes agent-pulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.5; transform: scale(1.3); }
+}
+
+/* --- Shimmer (progress bar) --- */
+@keyframes shimmer {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(200%); }
+}
+
+/* --- Typing Cursor --- */
+@keyframes blink-cursor {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+/* --- Radar Sweep (for header) --- */
+@keyframes radar-sweep {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* --- Grid Flicker --- */
+@keyframes grid-flicker {
+  0%, 100% { opacity: 0.03; }
+  50% { opacity: 0.06; }
+}
+
+/* --- Utility Classes --- */
+.animate-pulse-critical {
+  animation: pulse-critical 2s ease-in-out infinite;
+}
+
+.animate-pulse-warning {
+  animation: pulse-warning 2.5s ease-in-out infinite;
+}
+
+.animate-pulse-processing {
+  animation: pulse-processing 1.5s ease-in-out infinite;
+}
+
+.animate-pulse-dot {
+  animation: pulse-dot 1.5s ease-in-out infinite;
+}
+
+.animate-glow-green {
+  animation: glow-green 2s ease-in-out infinite;
+}
+
+.animate-flash-catastrophic {
+  animation: flash-catastrophic 0.8s ease-in-out infinite;
+}
+
+.animate-fade-in-up {
+  animation: fade-in-up 0.5s ease-out both;
+}
+
+.animate-fade-in-left {
+  animation: fade-in-left 0.4s ease-out both;
+}
+
+.animate-fade-in-scale {
+  animation: fade-in-scale 0.3s ease-out both;
+}
+
+.animate-stagger-reveal {
+  animation: stagger-reveal 0.5s ease-out both;
+}
+
+.animate-spin-slow {
+  animation: spin-slow 2s linear infinite;
+}
+
+.animate-blink {
+  animation: blink-cursor 1s step-end infinite;
+}
+
+.animate-radar {
+  animation: radar-sweep 4s linear infinite;
+}
+
+/* --- Stagger delay utilities --- */
+.delay-0 { animation-delay: 0ms; }
+.delay-1 { animation-delay: 150ms; }
+.delay-2 { animation-delay: 300ms; }
+.delay-3 { animation-delay: 450ms; }
+.delay-4 { animation-delay: 600ms; }
+.delay-5 { animation-delay: 750ms; }
+.delay-6 { animation-delay: 900ms; }
+.delay-7 { animation-delay: 1050ms; }
+
+/* --- Card Hover Glow --- */
+.card-hover-glow {
+  transition: all 0.3s ease;
+}
+
+.card-hover-glow:hover {
+  border-color: var(--border-bright);
+  box-shadow: 0 0 20px rgba(100, 116, 139, 0.1);
+  transform: translateY(-1px);
+}
+
+/* --- Gradient Text --- */
+.gradient-text-critical {
+  background: linear-gradient(135deg, #ff2d55, #ff6b6b);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.gradient-text-warning {
+  background: linear-gradient(135deg, #ffbe0b, #ffd60a);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.gradient-text-operational {
+  background: linear-gradient(135deg, #00f5a0, #00d9f5);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.gradient-text-header {
+  background: linear-gradient(135deg, #f1f5f9, #94a3b8);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* --- Grid Background Pattern --- */
+.tactical-grid-bg {
+  background-image:
+    linear-gradient(rgba(30, 41, 59, 0.5) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(30, 41, 59, 0.5) 1px, transparent 1px);
+  background-size: 40px 40px;
+  animation: grid-flicker 4s ease-in-out infinite;
+}
+
+/* --- Glassmorphism Card --- */
+.glass-card {
+  background: rgba(17, 24, 39, 0.7);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(51, 65, 85, 0.5);
+  border-radius: 16px;
+}
+
+/* --- Status indicator ring --- */
+.status-ring {
+  position: relative;
+}
+
+.status-ring::before {
+  content: '';
+  position: absolute;
+  inset: -2px;
+  border-radius: inherit;
+  padding: 2px;
+  background: conic-gradient(
+    from 0deg,
+    var(--accent-green),
+    var(--accent-blue),
+    var(--accent-purple),
+    var(--accent-red),
+    var(--accent-green)
+  );
+  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  mask-composite: exclude;
+  -webkit-mask-composite: xor;
+  animation: radar-sweep 4s linear infinite;
+}
