@@ -192,6 +192,7 @@ export default function MissionControl() {
               status={status}
               emergencyLevel={emergencyLevel}
               timeline={timeline}
+              isProcessing={isProcessing}
             />
           </div>
 

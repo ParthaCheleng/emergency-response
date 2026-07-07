@@ -3,7 +3,7 @@
 import EmergencyStatus from './EmergencyStatus';
 import IncidentTimeline from './IncidentTimeline';
 
-export default function IncidentIntel({ status, emergencyLevel, timeline }) {
+export default function IncidentIntel({ status, emergencyLevel, timeline, isProcessing }) {
   return (
     <section
       className="flex flex-col h-full overflow-y-auto
@@ -33,7 +33,7 @@ export default function IncidentIntel({ status, emergencyLevel, timeline }) {
       </div>
 
       {/* ── Incident Timeline ── */}
-      <IncidentTimeline timeline={timeline} />
+      <IncidentTimeline timeline={timeline} isProcessing={isProcessing} />
     </section>
   );
 }
